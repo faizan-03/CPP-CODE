@@ -1,83 +1,94 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-class Person {
-    
+class Person
+{
+
     string name;
     int Id;
     char Gender;
 
-    public:
-
-    Person() {
+public:
+    Person()
+    {
         name = "ali";
         Id = 0;
         Gender = 'U';
-        cout << "Default constructor called for " << name << " " << Id << " " << Gender << endl; 
+        cout << "Default constructor called for " << name << " " << Id << " " << Gender << endl;
     }
 
-    Person(string n, int id, char g) {
+    Person(string n, int id, char g)
+    {
         name = n;
         Id = id;
         Gender = g;
-        cout << "Parameterized constructor called for " << name << " " << Id << " " << Gender << endl; 
+        cout << "Parameterized constructor called for " << name << " " << Id << " " << Gender << endl;
     }
 
-
-    Person(const Person& other) {
+    Person(const Person &other)
+    {
         name = other.name;
         Id = other.Id;
         Gender = other.Gender;
-        cout << "Copy constructor called for " << name << " " << Id << " " << Gender << endl; 
+        cout << "Copy constructor called for " << name << " " << Id << " " << Gender << endl;
     }
 
-    ~Person() {
-        cout << "Destructor called for " << name << " " << Id << " " << Gender << endl; 
-        
+    ~Person()
+    {
+        cout << "Destructor called for " << name << " " << Id << " " << Gender << endl;
     }
 
-    void setInfo(string n, int id, char g) {
+    void setInfo(string n, int id, char g)
+    {
         name = n;
-        Id = id;    
+        Id = id;
         Gender = g;
-    } 
+    }
 
-    void setInfo(){
-      
+    void setInfo()
+    {
+
         cout << "Enter name: ";
         cin >> name;
         cout << "Enter ID: ";
         cin >> Id;
-        cout << "Enter Gender (M/F): "; 
+        cout << "Enter Gender (M/F): ";
         cin >> Gender;
-    
     }
 
-    void displayInfo() {
+    void displayInfo()
+    {
         cout << "Name: " << name << endl;
         cout << "ID: " << Id << endl;
         cout << "Gender: " << Gender << endl;
     }
 };
 
-int main(){
+int main()
+{
 
-    Person p1,p2,p3("Charlie", 67890, 'M');
-    Person p4(p3);
+    Person *p1 = new Person();
+    Person *p4 = new Person("Diana", 98765, 'F');
+    Person *p5 = new Person(*p4);
 
-    
+    delete p1;
+    delete p4;
+    delete p5;
+    p4 = nullptr;
+    p5 = nullptr;
+    p1 = nullptr;
 
-    // p1.name = "Bob"; 
+    // Person p1,p2,p3("Charlie", 67890, 'M');
+    // Person p4(p3);
+
+    // p1.name = "Bob";
     // p1.Id = 54321;
     // p1.Gender = 'M';
     // p1.displayInfo();
 
-
     // p1.setInfo("Alice", 12345, 'F');
-    // p1.displayInfo(); 
-    
-    
-     
+    // p1.displayInfo();
+
     // cout <<"-----------------------------" << endl;
     // Person p2;
     // p2.setInfo();
