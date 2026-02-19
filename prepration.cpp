@@ -34,13 +34,22 @@ struct Person {
 int main(){
 
     Person p1;
+    p1.name = "Bob"; 
+    p1.Id = 54321;
+    p1.Gender = 'M';
+    p1.displayInfo();
+
+    cout <<"-----------------------------" << endl;
+
     p1.setInfo("Alice", 12345, 'F');
     p1.displayInfo();  
      
     cout <<"-----------------------------" << endl;
+
     Person p2;
     p2.setInfo();
     cout <<"-----------------------------" << endl;
+    
     p2.displayInfo();
 
     return 0;
