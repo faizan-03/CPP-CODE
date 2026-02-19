@@ -1,11 +1,13 @@
 #include<iostream>
 using namespace std;
 
-struct Person {
+class Person {
     
     string name;
     int Id;
     char Gender;
+
+    public:
 
     void setInfo(string n, int id, char g) {
         name = n;
@@ -35,7 +37,12 @@ int main(){
 
     Person p1;
     p1.setInfo("Alice", 12345, 'F');
-    p1.displayInfo();  
+    p1.displayInfo(); 
+    
+    p1.name = "Bob"; 
+    p1.Id = 54321;
+    p1.Gender = 'M';
+    p1.displayInfo();
      
     cout <<"-----------------------------" << endl;
     Person p2;
